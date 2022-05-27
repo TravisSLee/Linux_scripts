@@ -4,8 +4,7 @@
 
 RANDOMNUM=''
 BONUSBALL=$((RANDOM % 10))
-TODAY=`date +'%m%d%Y'`
-FILENAME=Lottery$TODAY.log
+LotteryNum=$(tail -1 ./Lottery05262022.log)
 count=1
 echo "Would like to play the lottery? Yes or No."
 
@@ -18,12 +17,9 @@ else
 	break
 fi
 
-
-
 while [ $count -le 5 ]; do
-	echo "number"
 	number=$((1 + $RANDOM % 50)) 
-	if [ $RANDOMNUM | grep -c $number  == 1 ]; then
+	if [[ $RANDOMNUM == *$number* ]]; then
 		continue
 	else
 		RANDOMNUM+=" ${number}"
@@ -33,9 +29,13 @@ while [ $count -le 5 ]; do
 done
 
 RANDOMNUM+=" ${BONUSBALL}"
+echo "Today's numbers are:$LotteryNum"
 
+echo "Your numbers are:$RANDOMNUM"
 
-
-echo $RANDOMNUM 
-
-echo "You have won!"
+ONE=1
+if [[ $LotteryNum  == $RANDOMNUM ]]; then
+	echo "You have won!"
+else
+	echo "Sorry, you didn't  win! Try again later."
+fi

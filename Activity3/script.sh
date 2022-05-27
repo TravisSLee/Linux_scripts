@@ -11,9 +11,9 @@ touch $FILENAME
 while [ $count -le 5 ];
 do
 	number=$((1 + $RANDOM % 50))
-	COMPARE=$RANDOMNUM | grep $number | wc -l 
-	if [ $COMPARE -eq 1 ]
+	if [[ $RANDOMNUM == *$number* ]]
 	then
+		
 		continue
 	else
 		RANDOMNUM+=" ${number}"
