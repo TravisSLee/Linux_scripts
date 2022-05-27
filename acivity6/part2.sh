@@ -25,11 +25,5 @@ while [ $ISNUMBERB -eq 0 ]; do
 done
 
 
- if [[ $ISNUMBERA -gt  $ISNUMBERB ]]; then
-        echo "Your first input is greater than the first"
- else
-        echo "Your second input is greater than or equal to your first input."
- fi
-
-
-
+diff=$((A-B)) 
+echo "The differemce between is: $diff."
