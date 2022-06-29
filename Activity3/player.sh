@@ -4,7 +4,7 @@
 
 RANDOMNUM=''
 BONUSBALL=$((RANDOM % 10))
-LotteryNum=$(tail -1 ./Lottery05262022.log)
+LotteryNum=$(tail -1 ./Lottery06012022.log)
 count=1
 echo "Would like to play the lottery? Yes or No."
 
